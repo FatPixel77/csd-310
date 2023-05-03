@@ -46,7 +46,8 @@ def show_Dist(cursor, title):
     cursor.execute("SELECT Distribution_id as 'Distribution ID', Distribution_name as 'Distribution Name', "
                    "Online_order_number as 'Online Order #'"
                    ", Tracking_number as 'Tracking Number',"
-                   "Distribution_delivery_date as 'Delivery Date', Order_date as 'Order Date' From distribution")
+                   "Distribution_delivery_date as 'Delivery Date', Order_date as 'Order Date', "
+                   "Wine_id as 'Wine Id', Amount_ordered as 'Amount Ordered' From distribution")
 
     Disttb = cursor.fetchall()
 
@@ -59,6 +60,8 @@ def show_Dist(cursor, title):
         print(f"Tracking Number: {row[3]}")
         print(f"Delivery Date: {row[4]}")
         print(f"Order Date: {row[5]}")
+        print(f"Wine id: {row[6]}")
+        print(f"Amount Ordered: {row[7]}")
         print(" ")
 
 
@@ -87,7 +90,7 @@ def show_Win(cursor, title):
     cursor.execute("SELECT Wine_id as 'Wine ID', Wine_name as 'Wine Name',"
                    "Wine_type as 'Type', Distribution_id as 'Dist. ID',"
                    "Supplier_id as 'Supplier ID', Employee_id as 'Employee ID',"
-                   "Number_sold as 'Number Sold' FROM winery")
+                   "Total_sold as 'Total Sold' FROM winery")
 
     Wintb = cursor.fetchall()
 
@@ -100,7 +103,7 @@ def show_Win(cursor, title):
         print(f"Dist. ID: {row[3]}")
         print(f"Supplier ID: {row[4]}")
         print(f"Employee ID: {row[5]}")
-        print(f"Number Sold: {row[6]}")
+        print(f"Total Sold: {row[6]}")
         print(" ")
 
 

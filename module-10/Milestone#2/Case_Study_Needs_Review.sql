@@ -27,7 +27,7 @@ CREATE TABLE `bacchuswinery`.`winery` (
   `Supplier_id`  VARCHAR(30),
   `Employee_id` VARCHAR(30),
   `Department_id` VARCHAR(30),
-  `Number_sold` VARCHAR(45) NULL,
+  `Total_sold` VARCHAR(45) NULL,
   PRIMARY KEY (`Wine_id`));
 
 CREATE TABLE `bacchuswinery`.`distribution` (
@@ -37,6 +37,8 @@ CREATE TABLE `bacchuswinery`.`distribution` (
   `Tracking_number` VARCHAR(45) NULL,
   `Distribution_delivery_date` DATE NULL,
   `Order_date` DATE NULL,
+  `Wine_id` VARCHAR(45) NULL, 
+  `Amount_ordered` VARCHAR(45) NULL,
   PRIMARY KEY (`Distribution_id`));
 
 CREATE TABLE `bacchuswinery`.`supplier` (
@@ -167,15 +169,17 @@ insert into bacchuswinery.department (`Department_id`, `Dept_name`, `Dept_head`)
 value (4, 'Distribution', 'Maria Costanza');
 
 -- Inserts Rows into distribution Table
-insert into bacchuswinery.distribution (`Distribution_id`, `Distribution_name`, `Online_order_number`,
- `Tracking_number`, `Distribution_delivery_date`, `Order_date`)
-value (1, 'West Side Shipping', 123, 123456, '2023-6-10', '2023-5-1');
+insert into bacchuswinery.distribution (`Distribution_id`, `Distribution_name`, `Online_order_number`, `Tracking_number`, `Distribution_delivery_date`, `Order_date`,
+`Wine_id`, `Amount_ordered`)
+value (1, 'West Side Shipping', 123, 123456, '2023-6-10', '2023-5-1', 1, 50);
 
-insert into bacchuswinery.distribution (`Distribution_id`, `Distribution_name`, `Online_order_number`, `Tracking_number`, `Distribution_delivery_date`, `Order_date`)
-value (2, 'East Side Shipping', 231, 234567, '2023-6-20', '2023-4-30');
+insert into bacchuswinery.distribution (`Distribution_id`, `Distribution_name`, `Online_order_number`, `Tracking_number`, `Distribution_delivery_date`, `Order_date`,
+`Wine_id`, `Amount_ordered`)
+value (2, 'East Side Shipping', 231, 234567, '2023-6-20', '2023-4-30', 2, 30);
 
-insert into bacchuswinery.distribution (`Distribution_id`, `Distribution_name`, `Online_order_number`, `Tracking_number`, `Distribution_delivery_date`, `Order_date`)
-value (3, 'North Side Shipping', 312, 345678, '2023-7-19', '2023-5-22');
+insert into bacchuswinery.distribution (`Distribution_id`, `Distribution_name`, `Online_order_number`, `Tracking_number`, `Distribution_delivery_date`, `Order_date`,
+`Wine_id`, `Amount_ordered`)
+value (3, 'North Side Shipping', 312, 345678, '2023-7-19', '2023-5-22', 3, 25);
 
 -- Inserts Rows into Supplier Table
 insert into bacchuswinery.supplier (`Supplier_id`, `Supplier_name`, `Supplier_inventory`,
@@ -192,17 +196,18 @@ value (3, 'Vates Inc.', '600', 'Bottles & Corks', '2023-5-1', '2023-5-15', '2023
 
 -- Inserts Rows into winery Table
 insert into bacchuswinery.winery (`Wine_id`, `Wine_name`, `Wine_type`,
-`Distribution_id`,`Supplier_id`, `Employee_id`, `Number_sold`)
+`Distribution_id`,`Supplier_id`, `Employee_id`, `Total_sold`)
 value (1, 'Red Stuff', 'Merlot', 1, 2, 16, 3259);
 
 insert into bacchuswinery.winery (`Wine_id`, `Wine_name`, `Wine_type`,
-`Distribution_id`,`Supplier_id`, `Employee_id`, `Number_sold`)
+`Distribution_id`,`Supplier_id`, `Employee_id`, `Total_sold`)
 value (2, 'Edgers Best', 'Cabernet', 2, 3, 11, 4257);
 
 insert into bacchuswinery.winery (`Wine_id`, `Wine_name`, `Wine_type`,
-`Distribution_id`,`Supplier_id`, `Employee_id`, `Number_sold`)
+`Distribution_id`,`Supplier_id`, `Employee_id`, `Total_sold`)
 value (3, 'White Stuff', 'Chablis', 2, 1, 10, 4385);
 
 insert into bacchuswinery.winery (`Wine_id`, `Wine_name`, `Wine_type`,
-`Distribution_id`,`Supplier_id`, `Employee_id`, `Number_sold`)
+`Distribution_id`,`Supplier_id`, `Employee_id`, `Total_sold`)
 value (4, 'Green Skin', 'Chardonnay', 2, 2, 20, 5204);
+
